@@ -2,7 +2,7 @@ import React from 'react'
 
 const person = () => {
     return (
-        <p>Person Works!</p>
+        <p>Works great!</p>
     );
 }
 
