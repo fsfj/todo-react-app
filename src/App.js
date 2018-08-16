@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './components/functional/Person';
+import Todos from './components/todos/Todo';
 
 class App extends Component {
   render() {
@@ -15,8 +16,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Person />
-        <Person />
-        <Person />
+        <Todos/>
       </div>
     );
   }
