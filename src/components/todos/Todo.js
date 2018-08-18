@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import Create from './Create'
+import { Button, Layout, Form } from 'antd';
 
 class Todo extends Component {
     
@@ -8,11 +11,19 @@ class Todo extends Component {
     render() {
         
         return (
-            <div>
-                <button onClick={this.onNavigateToCreate}>Create New</button>
-            </div>
+            <Layout>
+                <Form>
+                    <Button type="primary" onClick={this.onNavigateToCreate}>Create New</Button>
+                    <Create/>
+                    {this.props.ctr}
+                </Form>
+            </Layout>
         );
     }
 }
-
-export default Todo;
+const mapStateToProps = state => {
+    return {
+        ctr: state.counter
+    }
+}
+export default connect(mapStateToProps)(Todo);
