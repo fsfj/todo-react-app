@@ -1,5 +1,10 @@
+import axios from 'axios';
+axios.defaults.baseURL = "http://localhost:4000";
+
 const initialState = {
-    counter: 0
+    counter: 0,
+    todos: [],
+    completedTodos: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +18,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 counter: state.counter + action.value
+            }
+        case 'GET_TODOS': 
+            return {
+                ...state,
+                todos: action.todos
+            }
+        case 'GET_COMPLETED_TODOS':
+            return {
+                ...state,
+                completedTodos: action.completedTodos
             }
         default: return state
     }

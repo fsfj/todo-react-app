@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Todos from './components/todos/Todo';
 
-import { Layout } from 'antd';
-import Counter from './components/Counter';
+import axios from 'axios';
 
+import { Layout } from 'antd';
 const { Header, Footer, Content } = Layout;
+
+axios.defaults.baseURL = "http://localhost:4000";
 
 
 class App extends Component {
@@ -13,11 +15,10 @@ class App extends Component {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Header>
-          <h1 style={{ color: 'white' }}>Todos</h1>
+          <h1 style={{ color: 'white', padding: 12, margin: 0 }}>Todos</h1>
         </Header>
-        <Content>
+        <Content style={{ padding: 24, margin: 0, minHeight: 280 }}>
           <Todos/>
-          <Counter/>
         </Content>
         <Footer></Footer>
       </Layout>
