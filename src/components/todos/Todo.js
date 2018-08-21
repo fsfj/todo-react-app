@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Create from './Create'
-import { Layout, Divider, Row, Col } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import ActiveTasks from './ActiveTask';
 import CompeletedTasks from './CompletedTask';
 import axios from 'axios';
+import { Link, Route} from 'react-router-dom'
 import mapDispatchToProps from '../../store/dispatch'
 
 axios.defaults.baseURL = "http://localhost:4000";
@@ -35,6 +36,8 @@ class Todo extends Component {
         let message = "Oyeah";
         return (
             <Layout>
+                <p><Link to="/">Home</Link></p>
+                <p><Link to="/new-task">New Task</Link></p>
                 <Create/>
                 <Row gutter={8}>
                     <Col span={12}>
@@ -48,10 +51,9 @@ class Todo extends Component {
                         </div>
                     </Col>
                 </Row>
-                
-
-                <Divider/>
-
+                asdad
+                <Route path="/" exact/>
+                <Route path="/new-task" exact component={ActiveTasks}/>
                 
             </Layout>
         );
